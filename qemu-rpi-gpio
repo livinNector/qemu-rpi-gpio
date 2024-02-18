@@ -139,10 +139,15 @@ class VGPIOManager(object):
         return ""
 
 if __name__=="__main__":
+    import sys
     print('[ ] Virtual GPIO manager')
     print('[ ] Listening for connections')
     vgpio = VGPIOManager()
-    while True:
-        cmd = input('(gpio)> ')
-        print(vgpio.parse(cmd))
+    if sys.argv[1] == "loop":
+        while True:
+            pass
+    else:
+        while True:
+            cmd = input('(gpio)> ')
+            print(vgpio.parse(cmd))
     vgpio.close()
